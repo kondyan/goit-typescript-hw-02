@@ -1,13 +1,13 @@
 import { useState, useEffect, useCallback } from "react";
-import { fetchQuery } from "../../api/api.js";
+import { fetchQuery } from "../../api/api.ts";
 import css from "./App.module.css";
 import toast, { Toaster } from "react-hot-toast";
-import SearchBar from "../SearchBar/SearchBar.jsx";
-import ImageGallery from "../ImageGallery/ImageGallery.jsx";
-import ErrorMessage from "../ErrorMessage/ErrorMessage.jsx";
-import Loader from "../Loader/Loader.jsx";
-import LoadMoreBtn from "../LoadMoreBtn/LoadMoreBtn.jsx";
-import ImageModal from "../ImageModal/ImageModal.jsx";
+import SearchBar from "../SearchBar/SearchBar.tsx";
+import ImageGallery from "../ImageGallery/ImageGallery.tsx";
+import ErrorMessage from "../ErrorMessage/ErrorMessage.tsx";
+import Loader from "../Loader/Loader.tsx";
+import LoadMoreBtn from "../LoadMoreBtn/LoadMoreBtn.tsx";
+import ImageModal from "../ImageModal/ImageModal.tsx";
 
 const notify = () => toast("Search Bar is empty");
 
@@ -72,7 +72,7 @@ const App = () => {
       <SearchBar onSubmit={onSubmit} />
       <ImageGallery cards={cards} handleClick={handleClick} />
       {loading ? <Loader /> : error && <ErrorMessage />}
-      {/* needs to be replaced with more optimal solution, dont know how yet */}
+      {/* ? needs to be replaced with more optimal solution, don't know how yet */}
       {currentPage < totalPages && <LoadMoreBtn onLoadMore={onLoadMore} />}
 
       <Toaster />
